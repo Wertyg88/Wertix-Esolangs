@@ -1,0 +1,2 @@
+SCJ interpreter:
+    To use: "python SCJ.py example.whatever" to run your scj code
