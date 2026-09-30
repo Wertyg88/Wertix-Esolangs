@@ -62,7 +62,7 @@ def runinst(inst,x,y):
         case "out":
             print(resolve(x),end="")
         case "outchr":
-            print(chr(resolve(x)), end="")
+            print(chr(resolve(x)%256), end="")
         case "jump":
             ip = resolve(x) -2
         case "in":
@@ -72,7 +72,8 @@ def runinst(inst,x,y):
         case "add":
             vardict[x] += resolve(y)
         case "sub":
-            vardict[x] -= resolve(y)
+            if vardict[x] - resolve(y) >= 0:
+                vardict[x] -= resolve(y)
         case "if":
             if resolve(x) != resolve(y):
                 ip += 1
